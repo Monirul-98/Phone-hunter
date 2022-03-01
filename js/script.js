@@ -86,10 +86,13 @@ const getDetails = (features) => {
             </div>
             <div class="col-md-3">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text"><small class="text-muted">${
-                      features.releaseDate ? features.releaseDate : "Not found"
-                    }</small></p>
+                <h5 class="card-title fw-bolder">Sensors</h5>
+                <span>${features.mainFeatures.sensors[0]}</span>,
+                <span>${features.mainFeatures.sensors[1]}</span>,
+                <span>${features.mainFeatures.sensors[2]}</span>,
+                <span>${features.mainFeatures.sensors[3]}</span>,
+                <span>${features.mainFeatures.sensors[4]}</span>,
+                <span>${features.mainFeatures.sensors[5]}</span>
                 </div>
             </div>
             <div class="col-md-3">
