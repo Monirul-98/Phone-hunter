@@ -85,12 +85,18 @@ const getDetails = (features) => {
                     <h5 class="card-title fw-bolder">Main features</h5>
                     <p><span class="fw-bold">Chip Set:</span>${
                       features.mainFeatures.chipSet
+                        ? features.mainFeatures.chipSet
+                        : "Not Found"
                     }</p>
                     <p><span class="fw-bold">Display Size:</span>${
                       features.mainFeatures.displaySize
+                        ? features.mainFeatures.displaySize
+                        : "Not Found"
                     }</p>
                     <p><span class="fw-bold">Memory:</span>${
                       features.mainFeatures.memory
+                        ? features.mainFeatures.memory
+                        : "Not Found"
                     }</p>
                 </div>
             </div>
