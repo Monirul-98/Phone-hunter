@@ -14,3 +14,9 @@ body {
 .heading-secondary {
   color: darkslateblue;
 }
+.phone-container {
+  background-color: rgba(112, 128, 144, 0.226);
+}
+.card-body-style {
+  background-color: lightgray;
+}
