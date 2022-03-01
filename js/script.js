@@ -3,6 +3,7 @@ document.getElementById("button-search").addEventListener("click", function () {
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
   loadMobiles(searchText);
+  toggleSpinner("block");
   searchField.value = "";
 });
 // Getting mobile data
@@ -12,9 +13,17 @@ const loadMobiles = (phoneName) => {
     .then((res) => res.json())
     .then((data) => getMobiles(data));
 };
+//Spinner display
+const toggleSpinner = (displayStyle) => {
+  document.getElementById("spinner").style.display = displayStyle;
+};
+
 //Showing mobiles in UI
 const getMobiles = (phones) => {
   const PhoneCards = document.getElementById("phone-cards");
+  const details = document.getElementById("details-card");
+  details.textContent = "";
+  toggleSpinner("none");
   PhoneCards.textContent = "";
   //Giving an error messange if no mobile found
   if (phones.status === false) {
@@ -22,24 +31,25 @@ const getMobiles = (phones) => {
     error.classList.add("mx-auto", "p-3");
     error.innerHTML = `<h2>Sorry!No phones found.</h2>`;
     PhoneCards.appendChild(error);
+    details.textContent = "";
   }
-  phones.data?.forEach((phone) => {
+  for (let i = 0; i <= 19; i++) {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
     <div class="card p-3">
         <div class="mx-auto mb-3">
-            <img src="${phone.image}" class="card-img-top" alt="...">
+            <img src="${phones.data[i].image}" class="card-img-top" alt="...">
         </div>
         <div class="card-body text-center card-body-style">
-            <h5 class="card-title fw-bolder">${phone.phone_name}</h5>
-            <h6>${phone.brand}</h6>
-            <button onclick="loadDetails('${phone.slug}')" type="button" class="btn btn-outline-dark">Details</button>
+            <h5 class="card-title fw-bolder">${phones.data[i].phone_name}</h5>
+            <h6>${phones.data[i].brand}</h6>
+            <button onclick="loadDetails('${phones.data[i].slug}')" type="button" class="btn btn-outline-dark">Details</button>
         </div>
     </div>
       `;
     PhoneCards.appendChild(div);
-  });
+  }
 };
 
 //Details section
@@ -51,11 +61,11 @@ const loadDetails = (id) => {
     .then((res) => res.json())
     .then((data) => getDetails(data.data));
 };
-
+//Shwing details in UI
 const getDetails = (features) => {
   const details = document.getElementById("details-card");
   details.innerHTML = `
-    <div class="card mb-3 mx-auto p-3" style="max-width: 840px;" >
+    <div class="card mb-3 mx-auto p-3 detail-card-style" style="max-width: 840px;" >
         <div class="row g-0">
             <div class="col-md-2">
                 <img src="${

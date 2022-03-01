@@ -14,9 +14,19 @@ body {
 .heading-secondary {
   color: darkslateblue;
 }
+/* Spinner styling */
+#spinner {
+  display: none;
+}
+/* Phone container styling */
 .phone-container {
   background-color: rgba(112, 128, 144, 0.226);
 }
+/* Card Style  */
 .card-body-style {
   background-color: lightgray;
+}
+/* Detail Card styling  */
+.detail-card-style {
+  background-color: rgba(211, 211, 211, 0.342);
 }
