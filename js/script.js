@@ -98,26 +98,62 @@ const getDetails = (features) => {
                 <div class="card-body">
                 <h5 class="card-title fw-bolder">Others</h5>
                 <p><span class="fw-bold">Bluetooth:</span>${
-                  features.others.Bluetooth
+                  features?.others?.Bluetooth
+                    ? features?.others?.Bluetooth
+                    : "Not Found"
                 }</p>
-                <p><span class="fw-bold">GPS:</span>${features.others.GPS}</p>
-                <p><span class="fw-bold">NFC:</span>${features.others.NFC}</p>
+                <p><span class="fw-bold">GPS:</span>${
+                  features?.others?.GPS ? features?.others?.GPS : "Not found"
+                }</p>
+                <p><span class="fw-bold">NFC:</span>${
+                  features?.others?.NFC ? features?.others?.NFC : "Not Found"
+                }</p>
                 <p><span class="fw-bold">Radio:</span>${
-                  features.others.Radio
+                  features?.others?.Radio
+                    ? features?.others?.Radio
+                    : "Not found"
                 }</p>
-                <p><span class="fw-bold">USB:</span>${features.others.USB}</p>
-                <p><span class="fw-bold">WLAN:</span>${features.others.WLAN}</p>
+                <p><span class="fw-bold">USB:</span>${
+                  features?.others?.USB ? features?.others?.USB : "Not Found"
+                }</p>
+                <p><span class="fw-bold">WLAN:</span>${
+                  features?.others?.WLAN ? features?.others?.WLAN : "Not found"
+                }</p>
                 </div>
             </div>
             <div class="col-md-2">
                 <div class="card-body">
                     <h5 class="card-title fw-bolder">Sensors</h5>
-                    <span>${features.mainFeatures.sensors[0]}</span>,
-                    <span>${features.mainFeatures.sensors[1]}</span>,
-                    <span>${features.mainFeatures.sensors[2]}</span>,
-                    <span>${features.mainFeatures.sensors[3]}</span>,
-                    <span>${features.mainFeatures.sensors[4]}</span>,
-                    <span>${features.mainFeatures.sensors[5]}</span>
+                    <span>${
+                      features.mainFeatures.sensors[0]
+                        ? features.mainFeatures.sensors[0]
+                        : ""
+                    }</span>,
+                    <span>${
+                      features.mainFeatures.sensors[1]
+                        ? features.mainFeatures.sensors[1]
+                        : ""
+                    }</span>,
+                    <span>${
+                      features.mainFeatures.sensors[2]
+                        ? features.mainFeatures.sensors[2]
+                        : ""
+                    }</span>,
+                    <span>${
+                      features.mainFeatures.sensors[3]
+                        ? features.mainFeatures.sensors[3]
+                        : ""
+                    }</span>,
+                    <span>${
+                      features.mainFeatures.sensors[4]
+                        ? features.mainFeatures.sensors[4]
+                        : ""
+                    }</span>,
+                    <span>${
+                      features.mainFeatures.sensors[5]
+                        ? features.mainFeatures.sensors[5]
+                        : ""
+                    }</span>
                 </div>
             </div>
         </div>
