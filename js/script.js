@@ -33,23 +33,23 @@ const getMobiles = (phones) => {
     PhoneCards.appendChild(error);
     details.textContent = "";
   }
-  for (let i = 0; i <= 19; i++) {
+  phones.data.slice(0, 20).map((elements) => {
     const div = document.createElement("div");
     div.classList.add("col");
     div.innerHTML = `
     <div class="card p-3">
         <div class="mx-auto mb-3">
-            <img src="${phones.data[i].image}" class="card-img-top" alt="...">
+            <img src="${elements.image}" class="card-img-top" alt="...">
         </div>
         <div class="card-body text-center card-body-style">
-            <h5 class="card-title fw-bolder">${phones.data[i].phone_name}</h5>
-            <h6>${phones.data[i].brand}</h6>
-            <button onclick="loadDetails('${phones.data[i].slug}')" type="button" class="btn btn-outline-dark">Details</button>
+            <h5 class="card-title fw-bolder">${elements.phone_name}</h5>
+            <h6>${elements.brand}</h6>
+            <button onclick="loadDetails('${elements.slug}')" type="button" class="btn btn-outline-dark">Details</button>
         </div>
     </div>
       `;
     PhoneCards.appendChild(div);
-  }
+  });
 };
 
 //Details section
